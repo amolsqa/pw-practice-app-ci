@@ -8,9 +8,15 @@
   },
   "scripts": {
     "ng": "ng",
-    "start": "ng serve"
+    "start": "ng serve",
+    "pageObject3-chrome": "npx playwright test usePageObject3.spec.ts --project=chromium",
+    "pageObject3-firefox": "npx playwright test usePageObject3.spec.ts --project=firefox",
+    "pageObject3-all-sequential": "npm run pageObject3-chrome && npm run pageObject3-firefox",
+    "pageObject3-all-parallel": "npm run pageObject3-chrome & npm run pageObject3-firefox",
+    "screenshotsVideosDemo": "npx playwright test screenshotsVideosDemo.spec.ts --project=chromium",
+    "environmentVariablesDemo3_dev": "powershell -Command \"$env:URL='http://uitestingplayground.com/ajax'; npx playwright test environmentVariablesDemo3.spec.ts --project=chromium\""
   },
-   "overrides": {
+  "overrides": {
     "stylus": "github:stylus/stylus#0.54.5"
   },
   "dependencies": {
@@ -61,11 +67,15 @@
     "@angular/compiler-cli": "^14.2.12",
     "@angular/language-service": "14.2.12",
     "@compodoc/compodoc": "^1.1.19",
+    "@faker-js/faker": "^10.3.0",
     "@fortawesome/fontawesome-free": "^5.2.0",
+    "@playwright/test": "^1.57.0",
     "@types/leaflet": "1.2.3",
     "@types/node": "^12.12.70",
+    "allure-playwright": "^3.6.0",
     "codelyzer": "^0.0.28",
     "conventional-changelog-cli": "^2.2.2",
+    "dotenv": "^17.3.1",
     "npm-run-all": "4.0.2",
     "rimraf": "2.6.1",
     "stylelint": "^15.6.0",
