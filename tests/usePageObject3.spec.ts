@@ -31,7 +31,7 @@ test('Datepicker Page Objects',async({page})=>{
     await pm.ondatepickerPage().selectDatepickerWithRangeFromToday(50,55)
 })
 // Demonstration purpose - Github Actions and Argos CI
-test.only('Github Action & Testing With Argos CI',async({page})=>{
+test.only('Github Actions & Testing With Argos CI',async({page})=>{
     const pm=new PageManager(page)
     await pm.navigateTo().formLayoutsPage()
     await pm.navigateTo().datepickerPage()
