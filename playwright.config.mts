@@ -1,9 +1,13 @@
 import { defineConfig, devices } from '@playwright/test';
-import { TestOptions } from './test-options';
-import * as dotenv from 'dotenv';
-import * as path from 'path';
+import { TestOptions } from './test-options.js';
+import { fileURLToPath } from 'url';
+import path from 'path';
+import { createArgosReporterOptions } from "@argos-ci/playwright/reporter";
+import dotenv from 'dotenv';
 
-dotenv.config({ path: path.resolve(__dirname, '.env') });
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+dotenv.config({ path: '.env' })
 
 export default defineConfig<TestOptions>({
    timeout:40000,
@@ -15,7 +19,18 @@ export default defineConfig<TestOptions>({
   retries: 1,
   //reporter: 'html',
   //reporter:'list',
-  reporter:[//['json',{outputFile:'test-results/jsonReport.json'}],
+  reporter:[
+    process.env.CI ? ["dot"] : ["list"],
+    [
+      "@argos-ci/playwright/reporter",
+      createArgosReporterOptions({
+        // Upload to Argos on CI only.
+        uploadToArgos: !!process.env.CI,
+
+        // Set your Argos token (required if not using GitHub Actions).
+        //token: "<YOUR-ARGOS-TOKEN>",
+      }),
+    ],//['json',{outputFile:'test-results/jsonReport.json'}],
             //['junit',{outputFile:'test-results/junitReport.xml'}],
             //['allure-playwright'],
             ['html']
@@ -28,6 +43,7 @@ export default defineConfig<TestOptions>({
           :'http://localhost:4200/',
     
     trace: 'on-first-retry',
+    screenshot: "only-on-failure",
     actionTimeout:20000,
     navigationTimeout:25000,
     video:{
