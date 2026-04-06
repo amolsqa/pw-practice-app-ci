@@ -49,7 +49,7 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "useDefineForClassFields": true,
-    "ignoreDeprecations": "6.0"
+    //"ignoreDeprecations": "6.0"
   },
   "angularCompilerOptions": {
     "strictTemplates": true,
