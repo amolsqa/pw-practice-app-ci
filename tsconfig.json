@@ -1,18 +1,19 @@
-{
+/*{
   "compileOnSave": false,
   "compilerOptions": {
     "importHelpers": true,
-    "module": "nodenext",
+    "module": "es2020",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
-    "moduleResolution": "nodenext",
+    "moduleResolution": "node",
     "experimentalDecorators": true,
     "target": "es2020",
      "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
+    "strictPropertyInitialization": false,
     "typeRoots": [
       "node_modules/@types"
     ],
@@ -24,4 +25,38 @@
       { "name": "tslint-language-service"}
     ]
   }
+}*/
+
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",              // ← changed from ESNext
+    "moduleResolution": "nodenext",    // ← changed from node
+    "importHelpers": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "declaration": false,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "useDefineForClassFields": true,
+    "ignoreDeprecations": "6.0"
+  },
+  "angularCompilerOptions": {
+    "strictTemplates": true,
+    "fullTemplateTypeCheck": true
+  },
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }
