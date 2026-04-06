@@ -32,7 +32,7 @@
   "compilerOptions": {
     "target": "ES2022",
     "module": "NodeNext",              // ← changed from ESNext
-    "moduleResolution": "nodenext",    // ← changed from node
+    "moduleResolution": "node16",    // ← changed from node
     "importHelpers": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
