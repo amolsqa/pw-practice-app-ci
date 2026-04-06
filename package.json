@@ -18,7 +18,8 @@
     "environmentVariablesDemo3_dev": "powershell -Command \"$env:URL='http://uitestingplayground.com/ajax'; npx playwright test environmentVariablesDemo3.spec.ts --project=chromium\""
   },
   "overrides": {
-    "stylus": "github:stylus/stylus#0.54.5"
+    "stylus": "github:stylus/stylus#0.54.5",
+    "@angular-devkit/build-angular/@babel/runtime": "^7.22.0"
   },
   "dependencies": {
     "@angular/animations": "^14.2.12",
